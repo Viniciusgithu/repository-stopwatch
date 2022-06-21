@@ -14,7 +14,7 @@ let hr = 0
 function start() {
     startTimer = setInterval(function () {
         ms++
-        if(ms === 100) {
+        if(ms == 100) {
             seg++
             ms = 0
         }
