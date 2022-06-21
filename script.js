@@ -14,12 +14,17 @@ let hr = 0
 function start() {
     startTimer = setInterval(function () {
         ms++
+        if(ms === 100) {
+            seg++
+            ms = 0
+        }
         atualizaValor()
     }, 10);
 }
 
 function atualizaValor() {
     th.innerHTML = ms
+    seconds.innerHTML = seg
 }
 
 btnStart.addEventListener("click", start)
