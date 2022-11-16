@@ -5,25 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document of Stopwatch</title>
+    <title>Cronômetro</title>
 </head>
 <body>
-    <img src="./img/clock.png" alt="clock">
+    <picture>
+        <img src="./img/clock.png" alt="clock">
+    </picture>
 
     <section id="box-number">
-        <span class="number" id="hour">00</span>
-        <span class="number">:</span>
-        <span class="number" id="minutes">00</span>
-        <span class="number">:</span>
-        <span class="number" id="seconds">00</span>
-        <span class="number">:</span>
-        <span class="number" id="th">00</span>
+        <span class="number" id="counter">00:00:00</span>
     </section>
 
     <section id="box-button">
-        <button class="buttons" id="start">Start</button>
-        <button class="buttons">Stop</button>
-        <button class="buttons">Reset</button>
+        <button class="buttons" id="start" onclick="start()">Start</button>
+        <button class="buttons" id="pause" onclick="pause()">Pause</button>
+        <button class="buttons" id="reset" onclick="reset()">Reset</button>
     </section>
 
     <script src="./script.js"></script>

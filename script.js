@@ -1,30 +1,49 @@
+let counter = document.querySelector("#counter")
 
-let btnStart = document.getElementById("start")
-let th = document.getElementById("th")
-let seconds = document.getElementById("seconds")
-let hour = document.getElementById("seconds")
-let minutes = document.getElementById("minutes")
+let btnStart = document.querySelector("#start");
+let btnStop = document.querySelector("#pause")
+let btnReset = document.querySelector("#reset")
 
-let startTimer
-let ms = 0
-let seg = 0
-let min = 0
-let hr = 0
 
-function start() {
-    startTimer = setInterval(function () {
-        ms++
-        if(ms == 100) {
-            seg++
-            ms = 0
+let hr = 0;
+let min = 0;
+let seg = 0;
+
+let tempo = 1000; //Quantos milésimos valem 1 segundo? 
+let cron;
+
+function start(){
+    cron = setInterval(()=> {
+        timer();
+    }, tempo);
+}
+
+function pause(){
+    clearInterval(cron);
+    return pause;
+}
+
+function reset(){
+    clearInterval(cron);
+    hr = 0;
+    min = 0;
+    seg = 0;
+    counter.innerText = '00:00:00';
+}
+
+function timer(){
+    seg++;
+
+    if(seg === 60){
+        seg = 0;
+        min++;
+        if (min == 60){
+            min = 0;
+            hr++;
         }
-        atualizaValor()
-    }, 10);
-}
+    }
 
-function atualizaValor() {
-    th.innerHTML = ms
-    seconds.innerHTML = seg
-}
+    let cont = (hr < 10 ? '0' + hr : hr) + ':' + (min < 10 ? '0' + min : min) + ':' + (seg < 10 ? '0' + seg : seg);
 
-btnStart.addEventListener("click", start)
+    counter.innerText = cont;
+}

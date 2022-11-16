@@ -8,13 +8,14 @@
 }
 
 body {
-    background: black;
+    background: blueviolet;
+    overflow-x: hidden;
 }
 
-img {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
+picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #box-number {
